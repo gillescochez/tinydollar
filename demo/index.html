@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script src="../source/tinydollar.js"></script>
+<style>
+	.red { color:red; }
+	.blue {color:blue; }
+</style>
+<body>
+	<div id="foo">foo</div>
+	<div class="boo">boo</div>
+	<div class="boo">boo</div>
+	<div class="boo">boo</div>
+	<div class="boo">boo</div>
+	<div class="boo">boo</div>
+	<div class="boo">boo</div>
+	<div class="boo">boo</div>
+	<div id="click">click</div>
+<script>
+	$('#foo').addClass('red');
+	$('#click').on('click', function() {
+		$('#foo').toggleClass('red');
+	});
+</script>
+</body>
+</html>
