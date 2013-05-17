@@ -152,7 +152,7 @@
          */
         toggleAttr: function(key, value) {
             return this.each(function() {
-                if (this[key]) this.removeAttribute(key);
+                if (this.hasAttribute(key)) this.removeAttribute(key);
                 else this.setAttribute(key, value);
             });
         },
@@ -168,7 +168,7 @@
             var arr = [];
 
             this.each(function() {
-                arr.push(this[key]);
+                arr.push(this.getAttribute(key));
             });
 
             return arr[1] ? arr : arr[0];

@@ -22,6 +22,15 @@ test('Static API', function() {
         }
     });
 
+    ok($._.e, '_.e exists');
+    ok($._.text, '$._.text exists');
+    equal(
+        ($._.text === 'innerText' || $._.text === 'textContent' || false),
+        true, '$._.text is correct'
+    );
+
+    deepEqual($.query('span', div)[0], span, '$.query');
+
     deepEqual($('#test-span'), new $.$('#test-span'), '$ return instance of tinydollar.$');
 
 });
@@ -92,4 +101,20 @@ test('Functional', function() {
 
     $('#test-span').html('<p>foo</p>');
     equal(span.innerHTML, '<p>foo</p>', 'html set');
+
+    /**
+     * Attributes
+     */
+    $('#test-span').attr('rel', 'test');
+    equal(span.getAttribute('rel'), 'test', 'attr');
+
+    equal($('#test-span').getAttr('rel'), 'test', 'getAttr');
+
+    $('#test-span').rmAttr('rel');
+    equal(span.getAttribute('rel'), null, 'rmAttr');
+
+    $('#test-span').toggleAttr('rel', 'test');
+    equal(span.getAttribute('rel'), 'test', 'toggleAttr');
+    $('#test-span').toggleAttr('rel', 'test');
+    equal(span.getAttribute('rel'), null, 'toggleAttr');
 });
