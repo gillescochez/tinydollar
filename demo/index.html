@@ -15,10 +15,12 @@
 	<div class="boo">boo</div>
 	<div class="boo">boo</div>
 	<div id="click">click</div>
+	<button>Button</button>
 <script>
 	$('#foo').addClass('red');
 	$('#click').on('click', function() {
 		$('#foo').toggleClass('red');
+		$('button').toggleAttr('disabled');
 	});
 </script>
 </body>

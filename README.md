@@ -1,4 +1,4 @@
 tinydollar
 ==========
 
-tiny DOM query/manip library
+tiny DOM manipulation library
