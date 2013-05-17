@@ -1,5 +1,4 @@
 /.idea
-/.idea/scope/*.xml
-/.idea/*.xml
+/.idea/*
 /node_modules
 /node_modules/*

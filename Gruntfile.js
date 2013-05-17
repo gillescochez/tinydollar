@@ -4,7 +4,6 @@ module.exports = function(grunt) {
         'source/<%= pkg.name %>.js'
     ];
 
-    // config
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         qunit: {
@@ -32,12 +31,10 @@ module.exports = function(grunt) {
         }
     });
 
-    // Load the plugins
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-jsdoc');
 
-    // Default task(s).
     grunt.registerTask('default', ['qunit', 'uglify', 'jsdoc', 'copy']);
 };
