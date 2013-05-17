@@ -23,14 +23,21 @@ module.exports = function(grunt) {
                     destination: 'doc'
                 }
             }
+        },
+        copy: {
+            main: {
+                src: ['source/jsdoc.css'],
+                dest: 'doc/styles/jsdoc-default.css'
+            }
         }
     });
 
     // Load the plugins
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-jsdoc');
 
     // Default task(s).
-    grunt.registerTask('default', ['qunit', 'uglify', 'jsdoc']);
+    grunt.registerTask('default', ['qunit', 'uglify', 'jsdoc', 'copy']);
 };

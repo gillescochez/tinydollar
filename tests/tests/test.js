@@ -30,10 +30,11 @@ test('Instance API', function() {
 
     var $instance = $('#test-span');
 
-    'addClass,attr,each,getAttr,off,on,rmAttr,rmClass,text,toggleAttr,toggleClass'.split(',').forEach(function(method) {
-        ok($instance[method], method + ' exists');
-        equal(typeof $instance[method], 'function', method + ' is a function');
-    });
+    'addClass,attr,each,getAttr,off,on,rmAttr,rmClass,text,toggleAttr,toggleClass'
+        .split(',').forEach(function(method) {
+            ok($instance[method], method + ' exists');
+            equal(typeof $instance[method], 'function', method + ' is a function');
+        });
 });
 
 test('Functional', function() {
