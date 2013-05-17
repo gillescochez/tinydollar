@@ -92,6 +92,34 @@
         },
 
         /**
+         * Hide the nodes
+         */
+        hide: function() {
+            return this.each(function() {
+                this.style.display = 'none';
+            });
+        },
+
+        /**
+         * Show the nodes
+         */
+        show: function() {
+            return this.each(function() {
+                this.style.display = '';
+            });
+        },
+
+        /**
+         * Toggle the nodes
+         */
+        toggle: function() {
+            return this.each(function() {
+                if (this.style.display == 'none')  this.style.display = '';
+                else  this.style.display = 'none';
+            });
+        },
+
+        /**
          * Toggle a given class of each nodes
          * @param className {String} The CSS class name
          */

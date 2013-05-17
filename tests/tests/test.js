@@ -117,4 +117,17 @@ test('Functional', function() {
     equal(span.getAttribute('rel'), 'test', 'toggleAttr');
     $('#test-span').toggleAttr('rel', 'test');
     equal(span.getAttribute('rel'), null, 'toggleAttr');
+
+    /**
+     * Hide/Show/Toggle
+     */
+    $('#test-span').hide();
+    equal(span.style.display, 'none', 'hide - span is hidden');
+    $('#test-span').show();
+    equal(span.style.display, '', 'show - span is displayed');
+
+    $('#test-span').toggle();
+    equal(span.style.display, 'none', 'toggle - span is hidden');
+    $('#test-span').toggle();
+    equal(span.style.display, '', 'toggle - span is hidden');
 });
