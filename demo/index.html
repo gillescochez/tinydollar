@@ -17,11 +17,17 @@
 	<div id="click">click</div>
 	<button>Button</button>
 <script>
+
 	$('#foo').addClass('red');
+
 	$('#click').on('click', function() {
 		$('#foo').toggleClass('red');
 		$('button').toggleAttr('disabled');
+		$('.boo').toggle();
 	});
+
+	$('.boo').addClass('blue');
+
 </script>
 </body>
 </html>
