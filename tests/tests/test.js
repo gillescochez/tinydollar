@@ -82,16 +82,31 @@ test('Functional', function() {
      * CSS class manipulation
      */
     $('#test-span').addClass('test');
-    equal(span.className, ' test', 'addClass');
+    equal(span.className, 'test', 'addClass');
 
     $('#test-span').rmClass('test');
     equal(span.className, '', 'rmClass');
 
     $('#test-span').toggleClass('test');
-    equal(span.className, ' test', 'toggleClass 1st');
+    equal(span.className, 'test', 'toggleClass 1st');
 
     $('#test-span').toggleClass('test');
     equal(span.className, '', 'toggleClass 2nd');
+
+    $('#test-span').addClass('test').addClass('red');
+    equal(span.className, 'test red', 'addClass 2 classes');
+
+    $('#test-span').rmClass('test');
+    equal(span.className, 'red', 'rmClass 1');
+
+    $('#test-span').rmClass('red');
+    equal(span.className, '', 'rmClass 2');
+
+    $('#test-span').addClass('test').addClass('test');
+    equal(span.className, 'test test', 'addClass 2 identical classes');
+
+    $('#test-span').rmClass('test');
+    equal(span.className, '', 'rmClass 2 identical classes');
 
     /**
      * text / html

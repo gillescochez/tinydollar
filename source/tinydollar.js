@@ -43,6 +43,23 @@
     };
 
     /**
+     * Return an array containing CSS class set on the element
+     * @param node
+     * @static
+     */
+    tinydollar.getClassAsArray = function(node) {
+
+        var res = [];
+        if (node.className) {
+            node.className.split(' ').forEach(function(className) {
+                res.push(className);
+            });
+        }
+
+        return res;
+    };
+
+    /**
      * Static function to remove a CSS class
      * @param node {HTMLElement} The targeted element
      * @param className {String} The CSS class name
@@ -50,14 +67,13 @@
      */
     tinydollar.rmClass = function(node, className) {
 
-        var arr = node.className.split(' '),
-            res = [];
+        var res = [];
 
-        arr.forEach(function(cName) {
+        tinydollar.getClassAsArray(node).forEach(function(cName) {
             (cName !== className) && res.push(cName);
         });
 
-        node.className = res.join(' ') || '';
+        node.className = res[1] ? res.join(' ') : (res[0] || '');
     };
 
     /**
@@ -67,7 +83,9 @@
      * @static
      */
     tinydollar.addClass = function(node, className) {
-        node.className += ' ' + className;
+        var res = tinydollar.getClassAsArray(node);
+        res.push(className);
+        node.className = res[1] ? res.join(' ') : (res[0] || '');
     };
 
     tinydollar.x(tinydollar.$.prototype, {
